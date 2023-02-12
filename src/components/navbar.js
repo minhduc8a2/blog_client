@@ -209,6 +209,7 @@ export default function MyNavbar(props) {
                         className="rounded-pill"
                         onClick={() => {
                           setExpanded(false);
+                          setShowNav(false);
                           props.goToTag(item);
                         }}
                       >

@@ -22,6 +22,8 @@ a {
 }
 .App {
   text-align: center;
+  overflow: hidden;
+  max-width: 100vw;
 }
 
 .slide-enter {

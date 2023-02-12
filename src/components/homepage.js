@@ -3,6 +3,7 @@ import MyCarousel from "./carousel";
 import MinhDucInfo from "./minhducinfo";
 import useFetch from "./useFetch";
 import { motion } from "framer-motion"
+import Animation from "./animation";
 
 import { useEffect } from "react";
 import apiURI from "./api"
@@ -13,10 +14,7 @@ export default function Homepage(props) {
 
   return (
    
-      <motion.div
-      initial={{ opacity: 0}}
-      animate={{ opacity: 1}}
-      transition={{ duration: 0.5 }} className="homepage">
+    <Animation children={<div className="homepage">
         <MyCarousel url={apiURI.post +"/latest"} />
 
         <MinhDucInfo />
@@ -26,7 +24,7 @@ export default function Homepage(props) {
           tag={props.tag}
           postIdRef={props.postIdRef}
         />
-      </motion.div>
+      </div>} animationName="appearFromTransparent"/>
     
   );
 }

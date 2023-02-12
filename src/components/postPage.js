@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Animation from "./animation";
 import { useRef, useEffect } from "react";
 import MyCard from "./card";
 import { motion } from "framer-motion"
@@ -24,10 +25,7 @@ export default function PostPage(props) {
     }
   };
   return (
-    <motion.div
-    initial={{ opacity: 0, x: "-50%"}}
-    animate={{ opacity: 1,x:0}}
-    transition={{ duration: 0.5 }} className="post-page" ref={postPage}>
+    <Animation children={<div className="post-page" ref={postPage}>
       <div className="container">
         <Link to="/" className="fontawesome ms-1 mb-3 d-block text-start">
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -37,22 +35,7 @@ export default function PostPage(props) {
         <p>{props.content}</p>
         <div className="same-posts ">
           {props.samePosts.length > 1 && (
-            <motion.div
-      initial="offscreen"
-      transition={{
-        default: {
-          duration: 1,
-          ease: [0, 0.71, 0.2, 1.01]
-        },
-        // scale: {
-        //   type: "spring",
-        //   damping: 5,
-        //   stiffness: 100,
-        //   restDelta: 0.001
-        // }
-      }}
-      whileInView="onscreen"
-      viewport={{ once: false, amount: 0.8 }} variants={titleVariants}><h2 className="text-start mb-5">Các bài viết cùng chủ đề</h2></motion.div>
+            <div><h2 className="text-start mb-5">Các bài viết cùng chủ đề</h2></div>
           )}
           <div className="row">
             {props.samePosts.map((item) => (
@@ -71,6 +54,6 @@ export default function PostPage(props) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>} animationName="appearFromTransparent"/>
   );
 }
