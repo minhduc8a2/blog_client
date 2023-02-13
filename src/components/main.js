@@ -7,7 +7,6 @@ import Admin from "./admin";
 import Footer from "./footer";
 import { useState, useRef } from "react";
 import apiURI from "./api"
-
 function Main() {
   const url = apiURI.post;
   const { data, loading, error } = useFetch(url);
@@ -31,7 +30,7 @@ function Main() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage tag={tag} postIdRef={postIdRef} />}
+          element={<Homepage tag={tag} postIdRef={postIdRef} data={data} loading={loading} />}
         ></Route>
         <Route path="/admin/*" element={<Admin />}></Route>
         {!loading &&
