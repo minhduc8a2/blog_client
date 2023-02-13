@@ -43,6 +43,7 @@ function Main() {
                   image={item.image}
                   content={item.content}
                   tag={item.tag}
+                  author={item.author}
                   samePosts={data.filter(
                     (post) => post.tag === item.tag && post._id !== item._id
                   )}
