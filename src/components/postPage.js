@@ -13,7 +13,8 @@ export default function PostPage(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-
+  const content = props.content.split('\n');
+  
   return (
     <Animation
       children={
@@ -24,7 +25,7 @@ export default function PostPage(props) {
             </Link>
             <h1>{props.title}</h1>
             <img src={props.image} alt=""></img>
-            <p>{props.content}</p>
+            {content.map((item,index) => <p key={index}>{item}</p>)}
             <h5 className="text-end">Tác giả: {props.author}</h5>
             <div className="same-posts ">
               {props.samePosts.length > 1 && (

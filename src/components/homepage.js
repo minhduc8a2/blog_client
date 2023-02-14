@@ -16,7 +16,7 @@ export default function Homepage(props) {
     <Animation children={<div className="homepage">
         {props.loading?  <div><Spinner animation="grow" variant="danger" />
         <Spinner animation="grow" variant="warning" />
-        <Spinner animation="grow" variant="info" /></div>:<MyCarousel data={props.data.slice(props.data.length-3,props.data.length)} loading={props.loading} />}
+        <Spinner animation="grow" variant="info" /></div>:<MyCarousel data={props.data.slice(props.data.length>=3?props.data.length-3:props.data.length>=2?props.data.length-2:props.data.length-1,props.data.length)} loading={props.loading} />}
 
         <MinhDucInfo />
         <Post
