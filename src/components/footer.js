@@ -7,12 +7,11 @@ import {
   faGlobe,
   faBlog,
 } from "@fortawesome/free-solid-svg-icons";
-import Animation from "./animation";
+
 
 export default function Footer() {
   return (
-    <Animation
-      children={
+    
         <div className="footer text-white bg-dark mt-5 ">
           <div className="container">
             <div className="row py-4">
@@ -66,8 +65,7 @@ export default function Footer() {
           </div>
           <div className=" bg-black py-3 ">&#169; 2023 Copyright: DLOG</div>
         </div>
-      }
-      animationName="appearFromTransparent"
-    />
+      
+    
   );
 }
